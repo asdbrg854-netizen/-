@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">מכין את נתוני המשחק של Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">נסה שוב</string>
+    <string name="bootstrap_checking">בודק את נתוני המשחק. ההגדרה הראשונה מעתיקה קבצים למכשיר; השאר את האפליקציה פתוחה…</string>
+    <string name="bootstrap_verified">נתוני המשחק אומתו. מפעיל את Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">מכין אחסון לנתוני המשחק…</string>
+    <string name="bootstrap_copying">מעתיק נתוני משחק…\n%1$s\nהועתקו %2$s MiB</string>
+    <string name="bootstrap_verifying">מאמת את הנתונים שהועתקו…</string>
+    <string name="bootstrap_failed">הגדרת נתוני המשחק נכשלה:\n%1$s\nבדוק את שטח האחסון הפנוי ולחץ על נסה שוב.</string>
+</resources>

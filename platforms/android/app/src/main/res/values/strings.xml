@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Warzone2100 Mobile</string>
+    <string name="bootstrap_preparing">Preparing Warzone2100 Mobile game data…</string>
+    <string name="bootstrap_retry">Retry</string>
+    <string name="bootstrap_checking">Checking game data. First setup copies files to the device; keep the app open…</string>
+    <string name="bootstrap_verified">Game data verified. Starting Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Preparing storage for game data…</string>
+    <string name="bootstrap_copying">Copying game data…\n%1$s\n%2$s MiB copied</string>
+    <string name="bootstrap_verifying">Verifying copied game data…</string>
+    <string name="bootstrap_failed">Game data setup failed:\n%1$s\nCheck free storage, then tap Retry.</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Příprava dat hry Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Zkusit znovu</string>
+    <string name="bootstrap_checking">Kontrola herních dat. První nastavení zkopíruje soubory do zařízení; nechte aplikaci otevřenou…</string>
+    <string name="bootstrap_verified">Herní data ověřena. Spouštění Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Příprava úložiště pro herní data…</string>
+    <string name="bootstrap_copying">Kopírování herních dat…\n%1$s\nZkopírováno %2$s MiB</string>
+    <string name="bootstrap_verifying">Ověřování zkopírovaných dat…</string>
+    <string name="bootstrap_failed">Nastavení herních dat se nezdařilo:\n%1$s\nZkontrolujte volné místo a klepněte na Zkusit znovu.</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Warzone2100 Mobile oyun verileri hazırlanıyor…</string>
+    <string name="bootstrap_retry">Yeniden dene</string>
+    <string name="bootstrap_checking">Oyun verileri denetleniyor. İlk kurulumda dosyalar cihaza kopyalanır; uygulamayı açık tutun…</string>
+    <string name="bootstrap_verified">Oyun verileri doğrulandı. Warzone2100 Mobile başlatılıyor…</string>
+    <string name="bootstrap_storage">Oyun verileri için depolama hazırlanıyor…</string>
+    <string name="bootstrap_copying">Oyun verileri kopyalanıyor…\n%1$s\n%2$s MiB kopyalandı</string>
+    <string name="bootstrap_verifying">Kopyalanan oyun verileri doğrulanıyor…</string>
+    <string name="bootstrap_failed">Oyun verileri kurulamadı:\n%1$s\nBoş depolama alanını kontrol edin, sonra Yeniden dene\'ye dokunun.</string>
+</resources>

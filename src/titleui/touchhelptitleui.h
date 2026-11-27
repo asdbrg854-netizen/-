@@ -1,0 +1,45 @@
+/*
+	This file is part of Warzone 2100.
+	Copyright (C) 2026  Warzone 2100 Project
+
+	Warzone 2100 is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	Warzone 2100 is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with Warzone 2100; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+*/
+/** \file
+ *  Warzone2100 Mobile: touch controls help screen. Shown automatically the first time the main menu opens
+ *  and available later from the main menu ("Touch Controls").
+ */
+
+#pragma once
+
+#include "titleui.h"
+
+#include <memory>
+
+class WzTouchHelpTitleUI : public WzTitleUI
+{
+public:
+	explicit WzTouchHelpTitleUI(std::shared_ptr<WzTitleUI> parent);
+	virtual ~WzTouchHelpTitleUI();
+	virtual void start() override;
+	virtual TITLECODE run() override;
+	virtual void render() override;
+
+private:
+	std::shared_ptr<WzTitleUI> parent;
+};
+
+/// true once the help screen has been shown automatically (marker file in the write directory)
+bool wzTouchHelpAlreadyShown();
+void wzTouchHelpMarkShown();

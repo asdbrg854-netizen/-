@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">กำลังเตรียมข้อมูลเกม Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">ลองอีกครั้ง</string>
+    <string name="bootstrap_checking">กำลังตรวจสอบข้อมูลเกม การตั้งค่าครั้งแรกจะคัดลอกไฟล์ไปยังอุปกรณ์ โปรดเปิดแอปค้างไว้…</string>
+    <string name="bootstrap_verified">ตรวจสอบข้อมูลเกมแล้ว กำลังเริ่ม Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">กำลังเตรียมพื้นที่จัดเก็บสำหรับข้อมูลเกม…</string>
+    <string name="bootstrap_copying">กำลังคัดลอกข้อมูลเกม…\n%1$s\nคัดลอกแล้ว %2$s MiB</string>
+    <string name="bootstrap_verifying">กำลังตรวจสอบข้อมูลที่คัดลอก…</string>
+    <string name="bootstrap_failed">ตั้งค่าข้อมูลเกมไม่สำเร็จ:\n%1$s\nตรวจสอบพื้นที่ว่าง แล้วแตะ ลองอีกครั้ง</string>
+</resources>

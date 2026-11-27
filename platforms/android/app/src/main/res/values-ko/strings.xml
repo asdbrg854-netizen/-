@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Warzone2100 Mobile 게임 데이터를 준비하는 중…</string>
+    <string name="bootstrap_retry">다시 시도</string>
+    <string name="bootstrap_checking">게임 데이터를 확인하는 중입니다. 처음 설정할 때는 파일이 기기로 복사됩니다. 앱을 열어 두세요…</string>
+    <string name="bootstrap_verified">게임 데이터를 확인했습니다. Warzone2100 Mobile을 시작하는 중…</string>
+    <string name="bootstrap_storage">게임 데이터용 저장 공간을 준비하는 중…</string>
+    <string name="bootstrap_copying">게임 데이터를 복사하는 중…\n%1$s\n%2$s MiB 복사됨</string>
+    <string name="bootstrap_verifying">복사한 게임 데이터를 확인하는 중…</string>
+    <string name="bootstrap_failed">게임 데이터 설정에 실패했습니다:\n%1$s\n저장 공간을 확인한 뒤 \'다시 시도\'를 누르세요.</string>
+</resources>

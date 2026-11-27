@@ -1,0 +1,177 @@
+plugins {
+    id 'com.android.application'
+}
+
+def repoRoot = file('../../..').canonicalFile
+def vcpkgRoot = providers.gradleProperty('vcpkgRoot').orElse(providers.environmentVariable('VCPKG_ROOT')).orNull
+def vcpkgInstalledDir = providers.gradleProperty('vcpkgInstalledDir').orNull
+def sdkRoot = System.getenv('ANDROID_HOME') ?: System.getenv('ANDROID_SDK_ROOT') ?: ''
+def androidNdk = new File(sdkRoot, 'ndk/27.2.12479018')
+def debugStagedDataDir = layout.buildDirectory.dir('generated/warzoneAssets/debug')
+def releaseStagedDataDir = layout.buildDirectory.dir('generated/warzoneAssets/release')
+def resolvedVcpkgRoot = vcpkgRoot ?: '/path/to/vcpkg'
+
+android {
+    namespace 'org.wz2100.android'
+    compileSdk 35
+    ndkVersion '27.2.12479018'
+
+    defaultConfig {
+        applicationId 'com.warzone2100.mobile'
+        minSdk 28
+        targetSdk 35
+        versionCode 1
+        versionName '1'
+        ndk { abiFilters 'arm64-v8a' }
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_PLATFORM=android-28', '-DANDROID_STL=c++_static',
+                    "-DCMAKE_TOOLCHAIN_FILE=${resolvedVcpkgRoot}/scripts/buildsystems/vcpkg.cmake",
+                    "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${androidNdk}/build/cmake/android.toolchain.cmake",
+                    '-DVCPKG_TARGET_TRIPLET=arm64-android',
+                    '-DVCPKG_MANIFEST_NO_DEFAULT_FEATURES=ON',
+                    '-DWZ_ENABLE_BACKEND_VULKAN=OFF', '-DWZ_ENABLE_BASIS_UNIVERSAL=OFF',
+                    '-DWZ_ENABLE_WEBM=OFF', '-DENABLE_NLS=OFF', '-DENABLE_DOCS=OFF',
+                    '-DENABLE_GNS_NETWORK_BACKEND=OFF', '-DWZ_INCLUDE_TERRAIN_HIGH=OFF'
+                if (vcpkgInstalledDir) arguments "-DVCPKG_INSTALLED_DIR=${vcpkgInstalledDir}"
+                abiFilters 'arm64-v8a'
+                targets 'warzone2100', 'data'
+            }
+        }
+    }
+
+    // Release signing: values come from platforms/android/keystore.properties (not committed, see .gitignore).
+    // Create the key once with tools/create_release_keystore.sh. Without that file, release builds stay unsigned.
+    def keystorePropsFile = rootProject.file('keystore.properties')
+    def keystoreProps = new Properties()
+    if (keystorePropsFile.exists()) {
+        keystorePropsFile.withInputStream { keystoreProps.load(it) }
+    }
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            // The default Debug CMake configuration compiles the engine with -O0, which makes startup and
+            // level loading several times slower on phones. Keep the APK debuggable (symbols are still
+            // included) but build the native code optimized. The .cxx/Debug output folder is unchanged,
+            // so asset staging still finds its files.
+            externalNativeBuild { cmake { arguments '-DCMAKE_BUILD_TYPE=RelWithDebInfo' } }
+        }
+        release {
+            if (keystorePropsFile.exists()) { signingConfig signingConfigs.release }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        debug { assets.srcDir(debugStagedDataDir) }
+        release { assets.srcDir(releaseStagedDataDir) }
+    }
+
+    externalNativeBuild {
+        cmake { path file('../../../CMakeLists.txt'); version '3.22.1' }
+    }
+
+    packaging { jniLibs { useLegacyPackaging true } }
+    // Keep game archives directly accessible to the native engine; avoid an
+    // additional APK compression/decompression pass during reads and copying.
+    androidResources { noCompress += ['wz', 'opus'] }
+}
+
+def registerWarzoneAssetStage = { String buildType ->
+    def suffix = buildType.capitalize()
+    def nativeConfiguration = buildType == 'release' ? 'RelWithDebInfo' : 'Debug'
+    def nativeBuildRoot = file(".cxx/${nativeConfiguration}")
+    def musicDirectory = new File(repoRoot, 'data/music')
+    def localeDirectory = new File(repoRoot, 'platforms/android/locale') // compiled .mo catalogs (see tools/po2mo.py)
+    def outputDirectory = layout.buildDirectory.dir("generated/warzoneAssets/${buildType}")
+    def stageTask = tasks.register("stageWarzoneAssets${suffix}") {
+        dependsOn "externalNativeBuild${suffix}"
+        inputs.files(fileTree(nativeBuildRoot) { include '**/data/**' })
+        inputs.files(fileTree(musicDirectory) { include '**/*' })
+        inputs.files(fileTree(localeDirectory) { include '**/*.mo' })
+        outputs.dir(outputDirectory)
+
+        doLast {
+            def dataDirectories = fileTree(nativeBuildRoot) {
+                include '**/data/base.wz'
+            }.files.collect { it.parentFile }
+            if (dataDirectories.empty) {
+                throw new GradleException("${suffix} native CMake build did not produce data/base.wz.")
+            }
+            def generatedData = dataDirectories.sort { a, b -> b.lastModified() <=> a.lastModified() }.first()
+            def destination = outputDirectory.get().asFile
+            delete destination
+            destination.mkdirs()
+
+            ['base.wz', 'mp.wz'].each { name ->
+                def source = new File(generatedData, name)
+                if (!source.isFile() || source.length() == 0) {
+                    throw new GradleException("Missing or empty required game archive: ${source}")
+                }
+                copy { from source; into destination }
+            }
+            ['terrain_overrides', 'fonts', 'mods'].each { name ->
+                def source = new File(generatedData, name)
+                if (source.exists()) copy { from source; into new File(destination, name) }
+            }
+            // Translation catalogs for the in-game language option (read by the built-in .mo reader)
+            if (localeDirectory.isDirectory()) {
+                copy { from localeDirectory; into new File(destination, 'locale') }
+            } else {
+                logger.warn("No translation catalogs found at ${localeDirectory}; only English will be available. Run platforms/android/tools/po2mo.py")
+            }
+            if (!musicDirectory.isDirectory()) {
+                throw new GradleException("Missing game music directory: ${musicDirectory}")
+            }
+            copy { from musicDirectory; into new File(destination, 'music') }
+
+            // Fingerprint every staged asset so the Android app can detect stale files
+            // left in private storage after an APK update.
+            def digest = java.security.MessageDigest.getInstance('SHA-256')
+            def stagedFiles = []
+            destination.eachFileRecurse { item ->
+                if (item.isFile()) stagedFiles << item
+            }
+            stagedFiles.sort { a, b ->
+                destination.toPath().relativize(a.toPath()).toString() <=>
+                    destination.toPath().relativize(b.toPath()).toString()
+            }.each { item ->
+                def relativePath = destination.toPath().relativize(item.toPath()).toString().replace(File.separator, '/')
+                digest.update(relativePath.getBytes('UTF-8'))
+                digest.update((byte) 0)
+                item.withInputStream { input ->
+                    byte[] buffer = new byte[128 * 1024]
+                    int count
+                    while ((count = input.read(buffer)) != -1) digest.update(buffer, 0, count)
+                }
+                digest.update((byte) 0)
+            }
+            def fingerprint = digest.digest().collect { String.format('%02x', it & 0xff) }.join()
+            new File(destination, 'wz2100-assets-manifest.txt').setText(fingerprint + '\n', 'UTF-8')
+            logger.lifecycle("Staged ${stagedFiles.size()} Warzone asset files for ${buildType}; fingerprint ${fingerprint}")
+        }
+    }
+
+    tasks.configureEach { task ->
+        def taskName = task.name.toLowerCase()
+        if (task.name == "merge${suffix}Assets"
+                || (taskName.contains(buildType.toLowerCase()) && taskName.contains('lint'))) {
+            task.dependsOn stageTask
+        }
+    }
+}
+
+registerWarzoneAssetStage('debug')
+registerWarzoneAssetStage('release')

@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Warzone2100 Mobile गेम डेटा तैयार किया जा रहा है…</string>
+    <string name="bootstrap_retry">फिर से कोशिश करें</string>
+    <string name="bootstrap_checking">गेम डेटा जाँचा जा रहा है। पहली बार सेटअप में फ़ाइलें डिवाइस पर कॉपी होती हैं; ऐप खुला रखें…</string>
+    <string name="bootstrap_verified">गेम डेटा सत्यापित हो गया। Warzone2100 Mobile शुरू हो रहा है…</string>
+    <string name="bootstrap_storage">गेम डेटा के लिए स्टोरेज तैयार किया जा रहा है…</string>
+    <string name="bootstrap_copying">गेम डेटा कॉपी हो रहा है…\n%1$s\n%2$s MiB कॉपी हुआ</string>
+    <string name="bootstrap_verifying">कॉपी किया गया डेटा सत्यापित किया जा रहा है…</string>
+    <string name="bootstrap_failed">गेम डेटा सेटअप विफल रहा:\n%1$s\nखाली जगह जाँचें, फिर फिर से कोशिश करें पर टैप करें।</string>
+</resources>

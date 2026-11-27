@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Đang chuẩn bị dữ liệu trò chơi Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Thử lại</string>
+    <string name="bootstrap_checking">Đang kiểm tra dữ liệu trò chơi. Lần thiết lập đầu tiên sẽ sao chép tệp vào thiết bị; hãy giữ ứng dụng mở…</string>
+    <string name="bootstrap_verified">Đã xác minh dữ liệu trò chơi. Đang khởi động Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Đang chuẩn bị bộ nhớ cho dữ liệu trò chơi…</string>
+    <string name="bootstrap_copying">Đang sao chép dữ liệu trò chơi…\n%1$s\nĐã sao chép %2$s MiB</string>
+    <string name="bootstrap_verifying">Đang xác minh dữ liệu đã sao chép…</string>
+    <string name="bootstrap_failed">Thiết lập dữ liệu trò chơi thất bại:\n%1$s\nHãy kiểm tra dung lượng trống rồi nhấn Thử lại.</string>
+</resources>

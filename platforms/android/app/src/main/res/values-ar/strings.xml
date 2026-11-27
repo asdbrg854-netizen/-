@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">جارٍ تجهيز بيانات لعبة Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">إعادة المحاولة</string>
+    <string name="bootstrap_checking">جارٍ فحص بيانات اللعبة. يقوم الإعداد الأول بنسخ الملفات إلى الجهاز؛ أبقِ التطبيق مفتوحاً…</string>
+    <string name="bootstrap_verified">تم التحقق من بيانات اللعبة. جارٍ تشغيل Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">جارٍ تجهيز مساحة التخزين لبيانات اللعبة…</string>
+    <string name="bootstrap_copying">جارٍ نسخ بيانات اللعبة…\n%1$s\nتم نسخ %2$s ميبيبايت</string>
+    <string name="bootstrap_verifying">جارٍ التحقق من بيانات اللعبة المنسوخة…</string>
+    <string name="bootstrap_failed">فشل إعداد بيانات اللعبة:\n%1$s\nتأكد من توفر مساحة تخزين كافية ثم اضغط إعادة المحاولة.</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Se pregătesc datele jocului Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Reîncearcă</string>
+    <string name="bootstrap_checking">Se verifică datele jocului. Prima configurare copiază fișiere pe dispozitiv; lasă aplicația deschisă…</string>
+    <string name="bootstrap_verified">Datele jocului au fost verificate. Se pornește Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Se pregătește spațiul de stocare pentru datele jocului…</string>
+    <string name="bootstrap_copying">Se copiază datele jocului…\n%1$s\n%2$s MiB copiați</string>
+    <string name="bootstrap_verifying">Se verifică datele copiate…</string>
+    <string name="bootstrap_failed">Configurarea datelor jocului a eșuat:\n%1$s\nVerifică spațiul liber, apoi atinge Reîncearcă.</string>
+</resources>

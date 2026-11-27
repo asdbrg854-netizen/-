@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">正在準備 Warzone2100 Mobile 遊戲資料…</string>
+    <string name="bootstrap_retry">重試</string>
+    <string name="bootstrap_checking">正在檢查遊戲資料。首次設定會將檔案複製到裝置，請保持應用程式開啟…</string>
+    <string name="bootstrap_verified">遊戲資料已驗證。正在啟動 Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">正在為遊戲資料準備儲存空間…</string>
+    <string name="bootstrap_copying">正在複製遊戲資料…\n%1$s\n已複製 %2$s MiB</string>
+    <string name="bootstrap_verifying">正在驗證已複製的遊戲資料…</string>
+    <string name="bootstrap_failed">遊戲資料設定失敗：\n%1$s\n請檢查可用儲存空間，然後點按「重試」。</string>
+</resources>

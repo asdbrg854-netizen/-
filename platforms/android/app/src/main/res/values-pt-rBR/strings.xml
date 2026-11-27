@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Preparando os dados do Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Tentar novamente</string>
+    <string name="bootstrap_checking">Verificando os dados do jogo. A primeira configuração copia arquivos para o aparelho; mantenha o app aberto…</string>
+    <string name="bootstrap_verified">Dados do jogo verificados. Iniciando o Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Preparando o armazenamento para os dados do jogo…</string>
+    <string name="bootstrap_copying">Copiando os dados do jogo…\n%1$s\n%2$s MiB copiados</string>
+    <string name="bootstrap_verifying">Verificando os dados copiados…</string>
+    <string name="bootstrap_failed">Falha ao configurar os dados do jogo:\n%1$s\nVerifique o espaço livre e toque em Tentar novamente.</string>
+</resources>

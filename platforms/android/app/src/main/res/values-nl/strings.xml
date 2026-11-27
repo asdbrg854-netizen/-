@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Spelgegevens van Warzone2100 Mobile worden voorbereid…</string>
+    <string name="bootstrap_retry">Opnieuw proberen</string>
+    <string name="bootstrap_checking">Spelgegevens worden gecontroleerd. Bij de eerste installatie worden bestanden naar het apparaat gekopieerd; laat de app geopend…</string>
+    <string name="bootstrap_verified">Spelgegevens geverifieerd. Warzone2100 Mobile wordt gestart…</string>
+    <string name="bootstrap_storage">Opslag voor spelgegevens wordt voorbereid…</string>
+    <string name="bootstrap_copying">Spelgegevens worden gekopieerd…\n%1$s\n%2$s MiB gekopieerd</string>
+    <string name="bootstrap_verifying">Gekopieerde gegevens worden gecontroleerd…</string>
+    <string name="bootstrap_failed">Installatie van spelgegevens mislukt:\n%1$s\nControleer de vrije opslagruimte en tik op Opnieuw proberen.</string>
+</resources>

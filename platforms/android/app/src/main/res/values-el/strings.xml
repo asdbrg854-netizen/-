@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Προετοιμασία δεδομένων του Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Επανάληψη</string>
+    <string name="bootstrap_checking">Έλεγχος δεδομένων παιχνιδιού. Η πρώτη ρύθμιση αντιγράφει αρχεία στη συσκευή· αφήστε την εφαρμογή ανοιχτή…</string>
+    <string name="bootstrap_verified">Τα δεδομένα επαληθεύτηκαν. Εκκίνηση του Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Προετοιμασία αποθηκευτικού χώρου για τα δεδομένα…</string>
+    <string name="bootstrap_copying">Αντιγραφή δεδομένων παιχνιδιού…\n%1$s\nΑντιγράφηκαν %2$s MiB</string>
+    <string name="bootstrap_verifying">Επαλήθευση των αντιγραμμένων δεδομένων…</string>
+    <string name="bootstrap_failed">Η ρύθμιση των δεδομένων απέτυχε:\n%1$s\nΕλέγξτε τον ελεύθερο χώρο και πατήστε Επανάληψη.</string>
+</resources>

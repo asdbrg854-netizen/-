@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Przygotowywanie danych gry Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Ponów</string>
+    <string name="bootstrap_checking">Sprawdzanie danych gry. Pierwsza konfiguracja kopiuje pliki na urządzenie; pozostaw aplikację otwartą…</string>
+    <string name="bootstrap_verified">Dane gry zweryfikowane. Uruchamianie Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Przygotowywanie miejsca na dane gry…</string>
+    <string name="bootstrap_copying">Kopiowanie danych gry…\n%1$s\nSkopiowano %2$s MiB</string>
+    <string name="bootstrap_verifying">Weryfikowanie skopiowanych danych…</string>
+    <string name="bootstrap_failed">Nie udało się skonfigurować danych gry:\n%1$s\nSprawdź wolne miejsce, a następnie dotknij Ponów.</string>
+</resources>

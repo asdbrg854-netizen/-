@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">正在准备 Warzone2100 Mobile 游戏数据…</string>
+    <string name="bootstrap_retry">重试</string>
+    <string name="bootstrap_checking">正在检查游戏数据。首次设置会将文件复制到设备，请保持应用打开…</string>
+    <string name="bootstrap_verified">游戏数据已验证。正在启动 Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">正在为游戏数据准备存储空间…</string>
+    <string name="bootstrap_copying">正在复制游戏数据…\n%1$s\n已复制 %2$s MiB</string>
+    <string name="bootstrap_verifying">正在验证已复制的游戏数据…</string>
+    <string name="bootstrap_failed">游戏数据设置失败：\n%1$s\n请检查可用存储空间，然后点按“重试”。</string>
+</resources>

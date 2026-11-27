@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Förbereder speldata för Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Försök igen</string>
+    <string name="bootstrap_checking">Kontrollerar speldata. Vid första installationen kopieras filer till enheten; låt appen vara öppen…</string>
+    <string name="bootstrap_verified">Speldata verifierad. Startar Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Förbereder lagringsutrymme för speldata…</string>
+    <string name="bootstrap_copying">Kopierar speldata…\n%1$s\n%2$s MiB kopierat</string>
+    <string name="bootstrap_verifying">Verifierar kopierad speldata…</string>
+    <string name="bootstrap_failed">Det gick inte att ställa in speldata:\n%1$s\nKontrollera ledigt utrymme och tryck på Försök igen.</string>
+</resources>

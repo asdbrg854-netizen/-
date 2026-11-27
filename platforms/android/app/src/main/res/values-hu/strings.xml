@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">A Warzone2100 Mobile játékadatainak előkészítése…</string>
+    <string name="bootstrap_retry">Újra</string>
+    <string name="bootstrap_checking">Játékadatok ellenőrzése. Az első beállításkor a fájlok az eszközre másolódnak; hagyd megnyitva az alkalmazást…</string>
+    <string name="bootstrap_verified">A játékadatok ellenőrizve. A Warzone2100 Mobile indítása…</string>
+    <string name="bootstrap_storage">Tárhely előkészítése a játékadatoknak…</string>
+    <string name="bootstrap_copying">Játékadatok másolása…\n%1$s\n%2$s MiB átmásolva</string>
+    <string name="bootstrap_verifying">A másolt adatok ellenőrzése…</string>
+    <string name="bootstrap_failed">A játékadatok beállítása sikertelen:\n%1$s\nEllenőrizd a szabad helyet, majd koppints az Újra gombra.</string>
+</resources>

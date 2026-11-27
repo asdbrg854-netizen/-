@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Warzone2100 Mobile のゲームデータを準備しています…</string>
+    <string name="bootstrap_retry">再試行</string>
+    <string name="bootstrap_checking">ゲームデータを確認しています。初回セットアップではファイルが端末にコピーされます。アプリを開いたままにしてください…</string>
+    <string name="bootstrap_verified">ゲームデータを確認しました。Warzone2100 Mobile を起動しています…</string>
+    <string name="bootstrap_storage">ゲームデータ用のストレージを準備しています…</string>
+    <string name="bootstrap_copying">ゲームデータをコピーしています…\n%1$s\n%2$s MiB コピー済み</string>
+    <string name="bootstrap_verifying">コピーしたゲームデータを確認しています…</string>
+    <string name="bootstrap_failed">ゲームデータのセットアップに失敗しました:\n%1$s\n空き容量を確認して、「再試行」をタップしてください。</string>
+</resources>

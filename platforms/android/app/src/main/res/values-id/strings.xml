@@ -1,0 +1,10 @@
+<resources>
+    <string name="bootstrap_preparing">Menyiapkan data game Warzone2100 Mobile…</string>
+    <string name="bootstrap_retry">Coba lagi</string>
+    <string name="bootstrap_checking">Memeriksa data game. Penyiapan pertama menyalin file ke perangkat; biarkan aplikasi tetap terbuka…</string>
+    <string name="bootstrap_verified">Data game terverifikasi. Memulai Warzone2100 Mobile…</string>
+    <string name="bootstrap_storage">Menyiapkan penyimpanan untuk data game…</string>
+    <string name="bootstrap_copying">Menyalin data game…\n%1$s\n%2$s MiB disalin</string>
+    <string name="bootstrap_verifying">Memverifikasi data yang disalin…</string>
+    <string name="bootstrap_failed">Penyiapan data game gagal:\n%1$s\nPeriksa ruang kosong, lalu ketuk Coba lagi.</string>
+</resources>
